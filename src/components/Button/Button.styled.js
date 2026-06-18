@@ -40,7 +40,7 @@ const getActiveStyles = ({ theme, variant, disabled }) => {
 };
 
 const StyledButton = styled.button`
-	${({ theme, variant, size }) => {
+	${({ theme, variant, size, $padding, $fontSize }) => {
 		const variantTheme = theme?.color?.[variant] || defaultColor;
 		const sizeTheme = theme?.size?.[size] || defaultSize;
 
@@ -48,8 +48,8 @@ const StyledButton = styled.button`
             color: ${variantTheme.color};
             background-color: ${variantTheme.bg};
 	        border: 1px solid ${variantTheme.border};
-            font-size: ${sizeTheme.fontSize};
-            padding: ${sizeTheme.padding};
+            font-size: ${$fontSize || sizeTheme.fontSize};
+            padding: ${$padding || sizeTheme.padding};
             border-radius: ${sizeTheme.borderRadius};
         `;
 	}}
